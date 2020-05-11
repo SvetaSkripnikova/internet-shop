@@ -1,0 +1,23 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "description": "Интернет-магазин",
+  "main": "index.js",
+  "scripts": {},
+  "author": "SSkripnikova",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.1",
+    "pug": "2.0.4",
+    "sqlite3": "4.2.0",
+    "body-parser": "1.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SvetaSkripnikova/internet-shop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SvetaSkripnikova/internet-shop/issues"
+  },
+  "homepage": "https://github.com/SvetaSkripnikova/internet-shop#readme"
+}
