@@ -4,4 +4,51 @@ block title
     <title> MILLION FLOWERS | Main page </title>
 
 block content
-    <div> Smth </div>
+    .container-fluid
+        if editItem
+            form(method="POST", action="/update")
+                .form-row.justify-content-center
+                    .form-group.col-sm-6
+                        label Title
+                        input.form-control(name="title", value-editItem.title, required)
+                .form-row.justify-content-center
+                    .form-group.col-sm-3
+                        label Description
+                        input.form-control(name="description", required)
+                    .form-group.col-sm-3
+                        label IMG
+                        input.form-control(name="img", required)
+                    .form-group.col-sm-3
+                        label Price
+                        input.form-control(name="price", required)
+            
+            .form-row.justify-content-center.mt-5
+                input.btn.btn-secondary.form-control.col-sm-6(type="submit", value="Add")
+        else
+            form(method="POST", action="/add")
+                .form-row.justify-content-center
+                    .form-group.col-sm-6
+                        label Title
+                        input.form-control(name="title" required)
+                .form-row.justify-content-center
+                    .form-group.col-sm-3
+                        label Description
+                        input.form-control(name="description", required)
+                    .form-group.col-sm-3
+                        label IMG
+                        input.form-control(name="img", required)
+                    .form-group.col-sm-3
+                        label Price
+                        input.form-control(name="price", required)
+            
+            .form-row.justify-content-center.mt-5
+                input.btn.btn-secondary.form-control.col-sm-6(type="submit", value="Add")
+        div
+           
+            -var n = products.count
+            -var k=3
+            each item in products
+                div(class='product_block') #{item.id} #{item.title} #{item.discription}
+                    
+                        
+            

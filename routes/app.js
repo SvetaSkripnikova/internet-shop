@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./index');
+const routes = require('../routes/index');
 //создание приложения
 let app = express();
 //установка порта для приложения

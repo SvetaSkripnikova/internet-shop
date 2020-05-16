@@ -1,0 +1,37 @@
+.product_block{
+    display: block;
+	width: 100%;
+	float: left;
+    transition: width .2s;
+    
+	border: 1px solid #b5e9a7;
+	border-radius: 3px;
+	position: relative;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	text-decoration: none;
+	color: #474747;
+	z-index: 0;
+    height: 300px;
+    
+    list-style: none;
+	padding: 0;
+}
+
+@media only screen and (min-width: 450px) {
+	.product_block {
+		width: 50%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.product_block {
+		width: 33.333%;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.product_block {
+		width: 25%;
+	}
+}
