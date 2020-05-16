@@ -49,6 +49,9 @@ block content
             -var k=3
             each item in products
                 div(class='product_block') #{item.id} #{item.title} #{item.discription}
+                    div(class='product_img')
+                        img(src=`${item.img}`)
+    
                     
                         
             

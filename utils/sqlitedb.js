@@ -40,6 +40,7 @@ exports.addProduct = function(product){
         let params = [
             product.title || '',
             product.discription || '',
+            product.img || '',
         ];
 
         connection().run(query, params, (err, result) => {
@@ -58,10 +59,12 @@ exports.updateProduct = function(product){
         let query = `UPDATE Product 
                      SET title = ?
                         , discription = ?
+                        , img = ?
                      WHERE id = ?`;
         let params = [
             product.title || '',
             product.discription || '',
+            product.img || '',
             product.id,
         ];
         console.log(params);
