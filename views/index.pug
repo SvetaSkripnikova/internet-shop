@@ -43,14 +43,18 @@ block content
             
             .form-row.justify-content-center.mt-5
                 input.btn.btn-secondary.form-control.col-sm-6(type="submit", value="Add")
-        div
-           
-            -var n = products.count
-            -var k=3
+        br
+        br
+        div(class='products')
             each item in products
-                div(class='product_block') #{item.id} #{item.title} #{item.discription}
+                div(class='product_block') 
                     div(class='product_img')
                         img(src=`${item.img}`)
+                    div(class='product_name') #{item.id} #{item.title} #{item.discription}
+
+
+                
+                    
     
                     
                         

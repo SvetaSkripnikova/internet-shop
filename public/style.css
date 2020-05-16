@@ -2,9 +2,10 @@
     display: block;
 	width: 100%;
 	float: left;
-    transition: width .2s;
+    transition: transform .4s ease-out;
+    height: auto;
     
-	border: 1px solid #b5e9a7;
+
 	border-radius: 3px;
 	position: relative;
 	background: #fff;
@@ -12,34 +13,78 @@
 	text-decoration: none;
 	color: #474747;
 	z-index: 0;
-    height: 300px;
+    height: 350px;
     
-    list-style: none;
-	padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+
+    text-align: center;
+    
+    justify-content: center;
 }
+
+.products {
+    display: flex;
+    align-items: center;
+	margin: 0 -20px 0 0;
+    padding: 0;
+    justify-content: center;
+}
+
 
 @media only screen and (min-width: 450px) {
 	.product_block {
-		width: 50%;
-	}
+        width: 40%;
+        height: auto;
+        flex-direction: column;
+    }      
+}
+
+@media only screen and (max-width: 600px) {
+    .products {
+        flex-wrap: wrap;
+    }
+    .product_block {
+        flex-basis: 50%;
+    }
 }
 
 @media only screen and (min-width: 768px) {
 	.product_block {
-		width: 33.333%;
-	}
+        width: 30%;
+        height: auto;
+        flex-direction: column;
+    }
+
 }
 
 @media only screen and (min-width: 1000px) {
 	.product_block {
-		width: 25%;
+        width: 20%;
+        height: auto;
+        flex-direction: column;
 	}
+}
+
+@media (max-width: 668px) {
+    .product_block {
+      flex-direction: column;
+}
+
+.product_block  {
+      width: 90%;
+}
 }
 
 .product_img {
 	position: relative;
 	padding-bottom: 100%;
-	overflow: hidden;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+    vertical-align: top;
+}
+.product_name {
+    vertical-align: bottom;
 }
 
 .product_img img {
@@ -53,3 +98,24 @@
 	margin: auto;
 	transition: transform .4s ease-out;
 }
+
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #0d47a1;
+  }
+
+.product_block:hover .product_img img {
+    transform: scale(1.05);
+   }
