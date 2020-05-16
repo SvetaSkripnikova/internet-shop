@@ -1,9 +1,10 @@
 class Product{
     static count = 1;
-    constructor(title, discription, img){
+    constructor(title, discription, img, price){
         this.title = title || '';
         this.discription = discription || '';
         this.img = img || '';
+        this.price = price || '';
         this.id = Product.count++;
     }
 }

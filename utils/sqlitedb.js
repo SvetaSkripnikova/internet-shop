@@ -41,6 +41,7 @@ exports.addProduct = function(product){
             product.title || '',
             product.discription || '',
             product.img || '',
+            product.price || '',
         ];
 
         connection().run(query, params, (err, result) => {
@@ -60,11 +61,13 @@ exports.updateProduct = function(product){
                      SET title = ?
                         , discription = ?
                         , img = ?
+                        , price = ?
                      WHERE id = ?`;
         let params = [
             product.title || '',
             product.discription || '',
             product.img || '',
+            product.price || '',
             product.id,
         ];
         console.log(params);
