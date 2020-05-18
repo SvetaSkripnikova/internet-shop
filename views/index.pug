@@ -4,9 +4,6 @@ block title
     <title> MILLION FLOWERS | Main page </title>
 
 block content
-
-
-    
         div(class="main_img")
             img(src="https://onemillionflowers.ru/wp-content/uploads/2018/02/logo.png")
         br
@@ -15,10 +12,23 @@ block content
             each item in products
                 div(class='product_block') 
                     div(class='product_img')
-                        img(src=`${item.img}`)
-                    div(class='product_name') #{item.title}
+                        img(src=`${item.img}`)   
+                    div(class='product_name') #{item.title}  
                     div(class='product_name') #{item.price} р.
-                    input(class="btn_next" type="button", value="Подробнее")
+                    -var srcc=`http://localhost:3000/product?id=${item.id}&title=${item.title}&discription=${item.discription}&price=${item.price}&img=${item.img}`
+                        a(class="btn_next", type="button", value="Подробнее" href=`${srcc}`) Подробнее
+                            
+                  
+                        
+                            
+                            
+                        
+
+    
+  
+             
+                    
+                        
 
 
                 

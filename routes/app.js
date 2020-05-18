@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require('../routes/index');
+const db = require('../utils/sqlitedb');
+const {MainViewModel} = require('../models/index');
 //создание приложения
 let app = express();
 //установка порта для приложения
@@ -11,10 +13,18 @@ app.set('view engine', 'pug');
 
 app.use('/contact', function(req, res) {
     res.render('contact', {
-      title: 'Наши контакты'
     })
-  })
-  
+})
+app.get('/product', function(req, res) {
+  res.render ('product', {
+    id: req.query.id,
+    title: req.query.title,
+    disc: req.query.discription,
+    price: req.query.price,
+    img: req.query.img,
+  }); 
+})
+
 
 //задаем директорию со статистическими файлами
 //для клиента (css, js, html, images...)
@@ -22,7 +32,10 @@ app.use(express.static(__dirname + '/public'));
 //задаем парсер тела запроса (request body)
 app.use(bodyParser.urlencoded({extended: true}));
 
+
+
 app.use('/', routes);
+//app.use('/product', routes);
 
 //запуск приложени с прослушиванием порта
 app.listen(port, () => {
