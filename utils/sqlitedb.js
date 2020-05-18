@@ -8,9 +8,9 @@ function connection(){
     });
 }
 
-exports.getProducts = function(id){
+exports.getCategories = function(id){
     return new Promise((resolve, reject)=>{
-        let query = 'SELECT * FROM Product';
+        let query = 'SELECT * FROM Category';
         let params = [];
         if (id) {
             query += ' WHERE ID = ?';
@@ -29,19 +29,58 @@ exports.getProducts = function(id){
     });
 }
 
+exports.getProducts = function(id){
+    return new Promise((resolve, reject)=>{
+        let context = connection();
+        let query = 'SELECT * FROM Category';
+
+        context.all(query,(err, categories)=>{
+            if (err) {
+                reject(err);
+            }
+            else{
+                query = 'SELECT * FROM Product';
+                let params=[];
+                if(id){
+                    query+=' WHERE ID = ?';
+                    params.push(id);
+                }
+
+                context.all(query, params, (err, result) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    else{
+                        result.forEach(x=>{
+                            x.category = categories.filter(y=>y.id===x.idCategory)[0];
+                            delete x.idCategory;
+                        });
+                        if(id){
+                            result=result[0];
+                        }
+                        resolve(result);
+                    }
+                });
+            }
+
+        }).close();
+    });
+}
+
 exports.addProduct = function(product){
     return new Promise((resolve, reject)=>{
         if (!product) {
             reject({message: 'product is empty'});
             return;
         }
-        let query = `INSERT INTO Product (title)
-                     VALUES(?)`;
+        let query = `INSERT INTO Product (title, discription, img, price, idCategory)
+                     VALUES(?, ?, ?, ?, ?)`;
         let params = [
             product.title || '',
             product.discription || '',
             product.img || '',
             product.price || '',
+            product.category.id || null,
         ];
 
         connection().run(query, params, (err, result) => {
@@ -62,12 +101,14 @@ exports.updateProduct = function(product){
                         , discription = ?
                         , img = ?
                         , price = ?
+                        , idCategory = ?
                      WHERE id = ?`;
         let params = [
             product.title || '',
             product.discription || '',
             product.img || '',
             product.price || '',
+            product.category.id || null,
             product.id,
         ];
         console.log(params);
@@ -78,7 +119,7 @@ exports.updateProduct = function(product){
     });
 }
 
-exports.deleteProduct = function(id){
+exports.removeProduct = function(id){
     return new Promise((resolve, reject)=>{
         if (!id) {
             reject({message: 'id is empty'});

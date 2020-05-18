@@ -3,8 +3,11 @@ const db = require('../utils/sqlitedb');
 
 module.exports = (r,q) => {
     db.getProducts().then(product =>{
-        let model = new MainViewModel('Products', product);
-        q.render('index', model);
+        db.getCategories().then(categoties =>{
+            let model = new MainViewModel('Products', product, categoties);
+            q.render('index', model);
+        })
+        
     });
    
 }

@@ -13,8 +13,9 @@ block content
                 div(class='product_block') 
                     div(class='product_img')
                         img(src=`${item.img}`)   
-                    div(class='product_name') #{item.title}  
-                    div(class='product_name') #{item.price} р.
+                    div(class='product_name') #{item.title} 
+                    div(class='product_categoty') #{item.category.name}  
+                    div(class='product_price') #{item.price} р.
                     -var srcc=`http://localhost:3000/product?id=${item.id}&title=${item.title}&discription=${item.discription}&price=${item.price}&img=${item.img}`
                         a(class="btn_next", type="button", value="Подробнее" href=`${srcc}`) Подробнее
                             

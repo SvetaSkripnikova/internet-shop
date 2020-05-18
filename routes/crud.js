@@ -6,6 +6,7 @@ exports.get=(r,q)=>{
     if(item){
         let model = new MainViewModel('Products'
                                         , db.getProducts()
+                                        , db.getCategories()
                                         , item);
         return q.render('index', model);
     }
@@ -13,12 +14,14 @@ exports.get=(r,q)=>{
 };
 
 exports.add = (r,q)=>{
+    r.body.category = db.getCategories(+r.body.category);
     db.addProduct(r.body);
     q.redirect('/');
 };
 
 exports.update = (r,q)=>{
     r.body.id=+r.body.id;
+    r.body.category = db.getCategories(+r.body.category);
     db.updateProduct(r.body);
     q.redirect('/');
 };
