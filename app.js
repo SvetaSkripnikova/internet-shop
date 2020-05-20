@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('../routes/index');
-const db = require('../utils/sqlitedb');
-const {MainViewModel} = require('../models/index');
+const routes = require('./routes');
+const db = require('./utils/sqlitedb');
+const {MainViewModel} = require('./models/index');
 //создание приложения
 let app = express();
 //установка порта для приложения
 let port = 3000;
-
 //задаем шаблонизатор для представления
 app.set('view engine', 'pug');
 
@@ -22,6 +21,7 @@ app.get('/product', function(req, res) {
     disc: req.query.discription,
     price: req.query.price,
     img: req.query.img,
+    category: req.query.category_name,
   }); 
 })
 
@@ -35,7 +35,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use('/', routes);
-//app.use('/product', routes);
 
 //запуск приложени с прослушиванием порта
 app.listen(port, () => {
