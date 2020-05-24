@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Интернет-магазин",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node app.js"
+  },
   "author": "SSkripnikova",
   "license": "ISC",
   "dependencies": {
