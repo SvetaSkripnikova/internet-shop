@@ -237,6 +237,12 @@ footer {
     left: 22.8%;
 }
 
+.mycontrol{
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+}
+
 .mmybtn {
     transform: translateY(0px);
     transition: 0.3s linear;

@@ -1,7 +1,7 @@
 extends layout.pug
 
 block title
-    title PRODUCT CARD |  
+    title PRODUCT CARD |  MILLION FLOWERS
 block content
     body
         div(id="container")
@@ -13,8 +13,8 @@ block content
                 br
                 p(class="information") #{disc}
                     div(class="control")
-                        button(class="mmybtn")
+                        button(class="mmybtn" onclick="location = 'http://localhost:3000/'")
                             span(class="price") #{price}₽
-                            span(class="buy") В корзину
+                            span(class="buy") На главную
             div(class="product-image")
                 img(src=`${img}`)
