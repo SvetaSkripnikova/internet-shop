@@ -454,9 +454,52 @@ footer {
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
+    margin-top: 30px;
     }
     
     /* вид кнопки ЗАКРЫТЬ при наведении на нее мыши */
     .modalwindow a:hover {
     background: rgb(200, 21, 21);
     }
+    .sum p{
+        margin-bottom: 3px;
+    }
+
+    .delete{
+        color: #fff;
+        background: rgb(85, 87, 88);
+        padding: 0.5%;
+        margin: 0 auto;
+        width: 7%;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        }
+    
+    .small-img{
+        width: 48px;
+        height: auto;
+        margin-left: 10px;
+        padding-right: 17px;
+    }
+
+    .plus{
+        color: #fff;
+        background: rgb(85, 87, 88);
+        margin: 0 auto;
+        width: 7%;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        }
+    
+        .minus{
+            color: #fff;
+            background: rgb(85, 87, 88);
+            margin: 0 auto;
+            width: 7%;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            }
+        
