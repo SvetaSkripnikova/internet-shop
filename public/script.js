@@ -1,5 +1,3 @@
-
-
 $(function(){
     let filter = $("[data-filter]");
 
