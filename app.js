@@ -6,7 +6,7 @@ const {MainViewModel} = require('./models/index');
 //создание приложения
 let app = express();
 //установка порта для приложения
-let port = 3000;
+let port = process.env.PORT || 3000;
 //задаем шаблонизатор для представления
 app.set('view engine', 'pug');
 
@@ -39,5 +39,5 @@ app.use('/', routes);
 
 //запуск приложени с прослушиванием порта
 app.listen(port, () => {
-    console.info(`App run on http://localhost:${port}`);
+    console.info(`App run on ${port}`);
 });
