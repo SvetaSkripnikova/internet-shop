@@ -8,28 +8,23 @@ block title
             
             
 block content
-    <div id="easynetshop-cart">
-        <div id="enscart_my_wrapper">
-          <div id="enscart_myimage_wrapper">
-            <a href="#error" class="tocart">
-                <img src="https://i.ibb.co/ZfJ03Ns/shop1.png">
-            </a>
-          </div>
-          <div id="enscart_my_counter_wrapper"><span  id="easynetshop-cart-count"></span></div>
-        </div>
-    </div>
+    div#easynetshop-cart
+        div#enscart_my_wrapper
+            div#enscart_myimage_wrapper
+                a(href="#error" class="tocart")
+                    img(src="https://i.ibb.co/ZfJ03Ns/shop1.png")
+            div#enscart_my_counter_wrapper
+                span#easynetshop-cart-count
 
-    <div id="error" class="modalbackground">
-        <div class="modalwindow">
-            <h3>Мои покупки:</h3>
+    div(id="error" class="modalbackground")
+        div.modalwindow
+            h3 Мои покупки:
             br
             div(id="my-cart" class="child")
             div.sum
                 p Итог:
                 div(id="my-sum")
-            <a class="close-btn" href=" ">Закрыть</a>
-        </div>
-    </div>
+            a(class="close-btn" href=" ") Закрыть
 
     div(class="main_img")
         img(src="https://onemillionflowers.ru/wp-content/uploads/2018/02/logo.png")
