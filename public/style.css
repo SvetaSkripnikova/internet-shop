@@ -22,7 +22,6 @@
     
     justify-content: center;
 }
-
 .products {
     display: flex;
     align-items: center;
@@ -44,6 +43,20 @@
 	background-color: #292881;;
 	box-shadow: 2px 2px 25px -7px #000000;;
 	cursor: pointer;
+}
+
+.btn_in_shopping {
+  position: absolute;
+  bottom: 3%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgb(62, 62, 66);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 100%;
 }
 
 @media only screen and (min-width: 450px) {
@@ -110,6 +123,10 @@
 
 .product_block  {
       width: 90%;
+}
+
+.navbar-right{
+    margin: 50%;
 }
 
 
@@ -223,7 +240,7 @@ footer {
 .mmybtn {
     transform: translateY(0px);
     transition: 0.3s linear;
-    background: #49C608;
+    background: #292881;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
@@ -234,8 +251,28 @@ footer {
     padding: 0;
     margin: 0;
 }
+
+.mmybtn_main {
+    transform: translateY(0px);
+    transition: 0.3s linear;
+    background: #292881;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #eee;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
     
-.mmybtn:hover{transform: translateY(-4px);}
+.mmybtn:hover{transform: translateY(-4px); background: #49C608;}
+.mmybtn_main:hover{transform: translateY(-4px); background: #49C608;}
+
+.mmybtn_main:active{background: #49C608;}
+.mmybtn:active{background: #49C608;}
     
 .mmybtn span {
     font-family: 'Farsan', cursive;
@@ -245,13 +282,33 @@ footer {
     font-size: 1.2em;
     margin:0;
 }
+
+.mmybtn_main span {
+    font-family: 'Farsan', cursive;
+    transition: transform 0.3s;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 1em;
+    margin:0;
+}
+
 .mmybtn .price{
+    background: #333;
+    border: 0;
+    margin: 0;
+}
+
+.mmybtn_main .price{
     background: #333;
     border: 0;
     margin: 0;
 }
     
 .mmybtn .price {
+    transform: translateX(-10%); padding-right: 15px;
+}
+
+.mmybtn_main .price {
     transform: translateX(-10%); padding-right: 15px;
 }
     
@@ -272,51 +329,134 @@ footer {
 .product-image:hover img {transform: scale(1.2, 1.2);}
     
 /* Dropdown Button */
-.dropbtn {
-    background-color: #444347;
-    color: white;
-    padding: 7px;
+.dropdown {
     font-size: 16px;
     border: none;
-    border-radius: 5%;
-    position: center;
-    place-items: center;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-/* The container <div> - needed to position the dropdown content */
-
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: center;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+	margin: 0 -20px 0 0;
+    padding: 0;
+    justify-content: center;
 }
 
 /* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
+.dropdown a {
+    color: rgb(107, 106, 110);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #5a5959;}
+.dropdown a:hover {color: rgb(46, 45, 47);}
 
 .hide {
     display: none;
 }
+
+#enscart_my_wrapper {
+    text-align: center;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1140;
+}
+  #enscart_myimage_wrapper {
+    background: #ffffff;
+    border-radius: 30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.4);
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+    z-index: 1140;
+}
+  #enscart_my_wrapper img {
+    height: 80%;
+    width: auto;
+    padding-top: 8px;
+}
+  #enscart_my_counter_wrapper {
+    cursor: pointer;
+    min-width: 30px;
+    height: 30px;
+    background-color: #d62240;
+    color: #fff;
+    border-radius: 30px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    text-align: center;
+    line-height: 30px;
+    font-family: Arial,sans-serif;
+    margin: 0px 3px;
+    z-index: 1150;
+}
+#easynetshop-cart {
+    border: none;
+    background-color: transparent;
+}
+
+.modalbackground {
+    margin: 0; /* убираем отступы */
+    padding: 0; /* убираем отступы */
+    position: fixed; /* фиксируем положение */
+    top:0; /* растягиваем блок по всему экрану */
+    bottom:0;
+    left:0;
+    right:0;
+    background: rgba(0,0,0,0.5); /* полупрозрачный цвет фона */
+    z-index:100; /* выводим фон поверх всех слоев на странице браузера */
+    opacity:0; /* Делаем невидимым */
+    pointer-events: none; /* элемент невидим для событий мыши */
+}
+    
+    /* при отображении модального окно - именно здесь начинается магия */
+    .modalbackground:target {
+        opacity: 1; /* делаем окно видимым */ 
+        pointer-events: auto; /* элемент видим для событий мыши */
+    }
+    
+    /* ширина диалогового окна и его отступы от экрана */
+    .modalwindow {
+        width: 100%;
+        max-width: 800px;
+        margin: 10% auto;
+        padding: 2%;
+        background: #fff;
+        border-radius: 3px;
+    }
+    
+    /* настройка заголовка */
+    .modalwindow h3 {
+    padding: 0;
+    margin: 0;
+    }
+    
+    /* оформление сообщение */
+    .modalwindow p {
+    padding: 0;
+    margin: 4% 0 8% 0;
+    }
+    
+    /* вид кнопки ЗАКРЫТЬ */
+    .modalwindow a {
+    display: block;
+    color: #fff;
+    background: rgb(85, 87, 88);
+    padding: 1%;
+    margin: 0 auto;
+    width: 30%;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    }
+    
+    /* вид кнопки ЗАКРЫТЬ при наведении на нее мыши */
+    .modalwindow a:hover {
+    background: rgb(200, 21, 21);
+    }

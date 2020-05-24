@@ -8,31 +8,53 @@ block title
             
             
 block content
+    <div id="easynetshop-cart">
+        <div id="enscart_my_wrapper">
+          <div id="enscart_myimage_wrapper">
+            <a href="#error">
+                <img src="https://i.ibb.co/ZfJ03Ns/shop1.png">
+            </a>
+          </div>
+          <div id="enscart_my_counter_wrapper"><span  id="easynetshop-cart-count"> 0 </span></div>
+        </div>
+    </div>
+
+    <div id="error" class="modalbackground">
+        <div class="modalwindow">
+            <h3>Мои покупки:</h3>
+            div(id="mini-cart")
+            <a href=" ">Закрыть</a>
+        </div>
+    </div>
+
     div(class="main_img")
         img(src="https://onemillionflowers.ru/wp-content/uploads/2018/02/logo.png")
     br
     br
     div(class="dropdown")
-        button(class="dropbtn") Выбор категории
-        div(class="dropdown-content")
             a(data-filter="0") Все категории
+            a |
             a(data-filter="1") Цветы в коробке
+            a |
             a(data-filter="2") Бизнес-букеты
+            a |
             a(data-filter="3") Авторские букеты
     br
     br
     div(id="elemforid" name="5")
     div(id='products' class='products')
         each item in products
+            -var srcc=`http://localhost:3000/product?id=${item.id}&title=${item.title}&discription=${item.discription}&price=${item.price}&img=${item.img}&category_name=${item.category.name}`
             div(class='product_block' data-cat=`${item.category.id}`) 
-                div(class='product_img')
-                    img(src=`${item.img}`)   
+                div(class='product_img') 
+                    a(href=`${srcc}`) 
+                        img(src=`${item.img}`) 
                 div(class='product_name') #{item.title} 
-                div(class='product_categoty') #{item.category.name}  
-                div(class='product_price') #{item.price} р.
-                -var srcc=`http://localhost:3000/product?id=${item.id}&title=${item.title}&discription=${item.discription}&price=${item.price}&img=${item.img}&category_name=${item.category.name}`
-                    a(class="btn_next", type="button", value="Подробнее" href=`${srcc}`) Подробнее
-    <script src="../public/script.js"></script>
+                div(class='product_categoty') - #{item.category.name} -
+                -var srcc_b=`http://localhost:3000/get?id=${item.id}`
+                button(class="mmybtn_main"  data-art=`${item.id}` data-title=`${item.title}` data-img=`${item.img}` data-price=`${item.price}` data-disc=`${item.discription}` data-categ=`${item.category.name}`)
+                    span(class="price") #{item.price}₽
+                    span(class="buy" ) В корзину
                 
                                         
                         

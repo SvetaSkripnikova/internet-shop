@@ -29,6 +29,7 @@ app.get('/product', function(req, res) {
 //задаем директорию со статистическими файлами
 //для клиента (css, js, html, images...)
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/utils'));
 //задаем парсер тела запроса (request body)
 app.use(bodyParser.urlencoded({extended: true}));
 
